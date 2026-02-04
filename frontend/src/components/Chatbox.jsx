@@ -7,6 +7,23 @@ const Chatbot = () => {
   const [chat, setChat] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [hasShownWelcome, setHasShownWelcome] = useState(false);
+
+  const handleToggleChat = () => {
+    const newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+    
+    // Show welcome message when opening chat for the first time
+    if (newIsOpen && !hasShownWelcome) {
+      const welcomeMessage = {
+        role: "bot",
+        text: "Hi! I'm Kian's AI assistant. Feel free to ask me about Kian's skills, projects, or experience!",
+        isWelcome: true
+      };
+      setChat([welcomeMessage]);
+      setHasShownWelcome(true);
+    }
+  };
 
   const sendMessage = async () => {
     if (!message.trim() || isLoading) return;
@@ -25,6 +42,7 @@ const Chatbot = () => {
         - Be friendly and helpful
         - Avoid complex words
         - Only answer questions related to the portfolio
+        - Act like yout are the person in this portfolio. DONT use "his" 
         `
       ;
       
@@ -77,9 +95,9 @@ const Chatbot = () => {
       {/* Floating Chat Button */}
       <button 
         className="chat-toggle-btn"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggleChat}
       >
-        {isOpen ? '✕' : '💬'} Chat with Kian
+        <span className="chat-icon">{isOpen ? '✕' : '💬'}</span> Chat with Kian
       </button>
 
       {/* Chat Container */}
@@ -95,14 +113,14 @@ const Chatbot = () => {
           {chat.map((msg, index) => (
             <div
               key={index}
-              className={`chat-message ${msg.role}`}
+              className={`chat-message ${msg.role} ${msg.isWelcome ? 'welcome' : ''}`}
             >
               <span>{msg.text}</span>
             </div>
           ))}
           {isLoading && (
-            <div className="chat-message bot">
-              <span>🤔 Thinking...</span>
+            <div className="chat-message bot typing">
+              <span>Thinking...</span>
             </div>
           )}
         </div>

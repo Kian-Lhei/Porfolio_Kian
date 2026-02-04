@@ -17,12 +17,23 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .chat-toggle-btn:hover {
   background: #1a1a1a;
   transform: translateY(-2px);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+  animation: none;
 }
 
 /* Chat Container */
@@ -103,6 +114,32 @@
   font-size: 14px;
   line-height: 1.4;
   word-wrap: break-word;
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typing indicator animation */
+.chat-message.typing {
+  animation: typingPulse 1.5s infinite;
+}
+
+@keyframes typingPulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* User message */
@@ -199,4 +236,56 @@
   background: #666;
 }
 
+/* Chat button icon animation */
+.chat-toggle-btn .chat-icon {
+  transition: transform 0.3s ease;
+}
 
+.chat-toggle-btn:hover .chat-icon {
+  transform: rotate(20deg);
+}
+
+/* Loading animation for send button */
+.chat-footer button.loading {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade in animation for chat container */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Welcome message special animation */
+.chat-message.welcome {
+  animation: welcomeBounce 0.6s ease-out;
+}
+
+@keyframes welcomeBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

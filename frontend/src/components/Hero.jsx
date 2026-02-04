@@ -38,7 +38,9 @@ export default function Hero () {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                     <div className="flex-1 text-center md:text-left">
                         <h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-6">
-                            Hi, I'm <span className="bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">Kian Lhei B. Pagkaliwagan</span>
+                            <span className="text-2xl md:text-2xl opacity-70 ">Hi, I'm</span>
+                            <br /> 
+                            <span className="bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">Kian Lhei Pagkaliwagan.</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-600 mb-8 h-8">
                             {typedText}<span className="animate-pulse">|</span>
@@ -48,20 +50,14 @@ export default function Hero () {
                                 href="#projects"
                                 className="inline-block bg-black text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200"
                             >
-                                View My Work
-                            </a>
-                            <a
-                                href="#contact"
-                                className="inline-block border-2 border-black text-black px-8 py-3 rounded-lg font-medium hover:bg-black hover:text-white transition-colors duration-200"
-                            >
-                                Get In Touch
+                                About me
                             </a>
                         </div>
                     </div>
                     <div className="flex-shrink-0">
                         <img 
                             src={Profile} 
-                            alt="Kian Lhei B. Pagkaliwagan" 
+                            alt="Kian Lhei Pagkaliwagan" 
                             className="w-96 h-96 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl object-cover"
                         />
                     </div>

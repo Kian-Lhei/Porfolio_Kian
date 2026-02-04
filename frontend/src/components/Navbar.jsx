@@ -23,7 +23,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <div className="flex-shrink-0">
                         <a href="#home" className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent hover:from-black hover:to-gray-900 transition-all duration-300">
-                            Kian Lhei B. Pagkaliwagan
+                            Kian Lhei Pagkaliwagan.
                         </a>
                     </div>
 

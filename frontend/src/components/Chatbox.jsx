@@ -17,10 +17,30 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
+      // Check if API key is available
+      if (!import.meta.env.VITE_GEMINI_API_KEY) {
+        throw new Error('API key is missing');
+      }
+
+      const systemPrompt = `You are Kian Lhei Pagkaliwagan's AI assistant. Answer questions about Kian's portfolio, skills, projects, and experience. Be professional but friendly. If asked about topics unrelated to Kian's portfolio, politely redirect the conversation back to Kian's professional work, skills, or projects.
+        
+      Rules:
+        - Answer in simple English
+        - Use short sentences
+        - Be friendly and helpful
+        - Avoid complex words
+        - Only answer questions related to the portfolio
+        `
+      ;
+      
       const res = await axios.post(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
         {
-          contents: [{ parts: [{ text: message }] }],
+          contents: [{ 
+            parts: [{ 
+              text: `${systemPrompt}\n\nUser question: ${message}` 
+            }] 
+          }],
         },
         {
           headers: {

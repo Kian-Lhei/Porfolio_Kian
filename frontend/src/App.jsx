@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import './App.css'
+import Chatbot from './components/Chatbox'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-
+      <Chatbot />
       <Hero />
       
     </>

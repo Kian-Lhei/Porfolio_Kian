@@ -129,11 +129,13 @@ const Chatbot = () => {
               key={index}
               className={`chat-message-wrapper ${msg.role} ${msg.isWelcome ? 'welcome' : ''}`}
             >
-              <img 
-                src={msg.role === 'user' ? Profile : Profile} 
-                alt={msg.role === 'user' ? 'User' : 'Kian'}
-                className="chat-avatar"
-              />
+              {msg.role === 'bot' && (
+                <img 
+                  src={Profile} 
+                  alt="Kian"
+                  className="chat-avatar"
+                />
+              )}
               <div className={`chat-message ${msg.role} ${msg.isWelcome ? 'welcome' : ''}`}>
                 <span>{msg.text}</span>
               </div>

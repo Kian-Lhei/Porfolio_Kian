@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import "./Chatbot.css";
+import Profile from "../assets/Profile.jpg";
 
 const Chatbot = () => {
   const [message, setMessage] = useState("");
@@ -17,7 +18,7 @@ const Chatbot = () => {
     if (newIsOpen && !hasShownWelcome) {
       const welcomeMessage = {
         role: "bot",
-        text: "Hi! I'm Kian's AI assistant. Feel free to ask me about Kian's skills, projects, or experience!",
+        text: "Hi! I'm Kian. Feel free to ask me about my skills, projects, or experience!",
         isWelcome: true
       };
       setChat([welcomeMessage]);
@@ -97,15 +98,28 @@ const Chatbot = () => {
         className="chat-toggle-btn"
         onClick={handleToggleChat}
       >
-        <span className="chat-icon">{isOpen ? '✕' : '💬'}</span> Chat with Kian
+        {isOpen ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="chat-icon">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="chat-icon">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        )}
+        <span>Chat with Kian</span>
       </button>
 
       {/* Chat Container */}
       <div className={`chat-container ${isOpen ? 'open' : ''}`}>
         <div className="chat-header">
-          Kian Lhei Pagkaliwagan
+          <span className="font-poppins">Kian Lhei Pagkaliwagan</span>
           <button className="close-btn" onClick={() => setIsOpen(false)}>
-            ✕
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </button>
         </div>
 
@@ -113,14 +127,24 @@ const Chatbot = () => {
           {chat.map((msg, index) => (
             <div
               key={index}
-              className={`chat-message ${msg.role} ${msg.isWelcome ? 'welcome' : ''}`}
+              className={`chat-message-wrapper ${msg.role} ${msg.isWelcome ? 'welcome' : ''}`}
             >
-              <span>{msg.text}</span>
+              <img 
+                src={msg.role === 'user' ? Profile : Profile} 
+                alt={msg.role === 'user' ? 'User' : 'Kian'}
+                className="chat-avatar"
+              />
+              <div className={`chat-message ${msg.role} ${msg.isWelcome ? 'welcome' : ''}`}>
+                <span>{msg.text}</span>
+              </div>
             </div>
           ))}
           {isLoading && (
-            <div className="chat-message bot typing">
-              <span>Thinking...</span>
+            <div className="chat-message-wrapper bot typing">
+              <img src={Profile} alt="Kian" className="chat-avatar" />
+              <div className="chat-message bot typing">
+                <span>Thinking...</span>
+              </div>
             </div>
           )}
         </div>
@@ -138,7 +162,15 @@ const Chatbot = () => {
             disabled={isLoading}
             className={isLoading ? 'loading' : ''}
           >
-            {isLoading ? '⏳' : '➤'}
+            {isLoading ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="animate-spin">
+                <path d="M21 12a9 9 0 11-6.219-8.56"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/>
+              </svg>
+            )}
           </button>
         </div>
       </div>

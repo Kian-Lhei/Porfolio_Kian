@@ -3,7 +3,7 @@ import Profile from "../assets/Profile.jpg";
 
 export default function Hero () {
     const [typedText, setTypedText] = useState("");
-    const fullText = "Bachelor of Science in Information Technology Student";
+    const fullText = "Bachelor of Science in Information Technology Student.";
     
     useEffect(() => {
         let index = 0;
@@ -37,20 +37,26 @@ export default function Hero () {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                     <div className="flex-1 text-center md:text-left">
-                        <h1 className="text-4xl md:text-4xl font-bold text-gray-900 mb-6">
-                            <span className="text-2xl md:text-2xl opacity-70 ">Hi, I'm</span>
-                            <br /> 
-                            <span className="bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">Kian Lhei Pagkaliwagan.</span>
+                        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center md:text-left">
+                            <span className="text-2xl md:text-3xl opacity-70 block">Hi, I'm</span>
+                            <span className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent block mt-2">Kian Lhei Pagkaliwagan.</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-600 mb-8 h-8">
+                        <p className="text-xl md:text-2xl text-gray-600 mb-8 h-8 text-center md:text-left">
                             {typedText}<span className="animate-pulse">|</span>
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center">
                             <a
                                 href="#projects"
                                 className="inline-block bg-black text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors duration-200"
                             >
-                                About me
+                                Let's Connect
+                            </a>
+
+                            <a 
+                                href="#projects"
+                                className="inline-block border-2 border-black text-black px-8 py-3 rounded-lg font-medium hover:bg-black hover:text-white transition-all duration-200"
+                            >
+                                View Work
                             </a>
                         </div>
                     </div>

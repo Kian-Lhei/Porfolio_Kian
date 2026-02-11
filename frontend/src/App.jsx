@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Techstack from './components/techstack'
+import Techstack from './components/Techstack'
 import './App.css'
 import Chatbot from './components/Chatbox'
 

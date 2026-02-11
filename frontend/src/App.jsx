@@ -15,7 +15,7 @@ function App() {
       <Navbar />|
       <Chatbot />
       <Hero />
-      <TechStack />
+      <Techstack />
     </>
   )
 }

@@ -33,13 +33,13 @@ export default function Hero () {
     }, []);
     
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+        <section id="home" className="min-h-screen flex items-center justify-center bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                     <div className="flex-1 text-center md:text-left">
-                        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 text-center md:text-left">
+                        <h1 className="text-4xl md:text-6xl font-bold text-black mb-6 text-center md:text-left">
                             <span className="text-2xl md:text-3xl opacity-70 block">Hi, I'm</span>
-                            <span className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent block mt-2">Kian Lhei Pagkaliwagan.</span>
+                            <span className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl text-black block mt-2">Kian Lhei Pagkaliwagan.</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-600 mb-8 h-8 text-center md:text-left">
                             {typedText}<span className="animate-pulse">|</span>
@@ -64,7 +64,7 @@ export default function Hero () {
                         <img 
                             src={Profile} 
                             alt="Kian Lhei Pagkaliwagan" 
-                            className="w-96 h-96 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl object-cover"
+                            className="w-96 h-96 md:w-80 md:h-80 rounded-full border-4 border-black shadow-xl object-cover"
                         />
                     </div>
                 </div>

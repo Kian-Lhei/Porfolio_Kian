@@ -16,13 +16,13 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="bg-white/90 backdrop-blur-sm shadow-lg border-b border-gray-200 sticky top-0 z-50">
+        <nav className="bg-white border-b border-black shadow-sm sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     
                     {/* Logo */}
                     <div className="flex-shrink-0">
-                        <a href="#home" className="text-2xl font-poppins font-bold bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent hover:from-black hover:to-gray-900 transition-all duration-300">
+                        <a href="#home" className="text-2xl font-poppins font-bold text-black hover:text-gray-700 transition-all duration-300">
                             Kian Lhei Pagkaliwagan.
                         </a>
                     </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
 
             {/* Mobile menu panel */}
             <div className={`md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-sm border-t border-gray-200">
+                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-black">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}

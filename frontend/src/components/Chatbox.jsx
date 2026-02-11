@@ -145,7 +145,7 @@ const Chatbot = () => {
             <div className="chat-message-wrapper bot typing">
               <img src={Profile} alt="Kian" className="chat-avatar" />
               <div className="chat-message bot typing">
-                <span>Thinking...</span>
+                <span>....</span>
               </div>
             </div>
           )}

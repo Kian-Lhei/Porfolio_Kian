@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TechStack = () => {
+const Techstack = () => {
   const techStacks = [
     { 
       name: 'HTML', 
@@ -68,4 +68,4 @@ const TechStack = () => {
   );
 };
 
-export default TechStack;
+export default Techstack;
